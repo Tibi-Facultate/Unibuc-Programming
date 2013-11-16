@@ -33,7 +33,10 @@ int main(int argc, char const *argv[])
       fprintf(fout, "%c", c);
     }
   }
-
+  if (ftruncate(fileno(fout), ftell(fout) ) != 0){
+    printf("%s\n", "I couldn't truncate!");
+    exit(2);
+  }
   fclose(fin);
   fclose(fout);
   return 0;
