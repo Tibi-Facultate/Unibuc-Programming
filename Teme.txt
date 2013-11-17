@@ -167,7 +167,7 @@ A6. (2 puncte) Scrieti un program care primeste ca argument in linia de
  (blank, tab, cap de linie) cu un singur blank. Se vor folosi doar functii de
  la nivelul inferior de prelucrare a fisierelor, fara lseek si nu se vor folosi
  fisiere auxiliare. Indicatie: fisierul va fi accesat prin doi descriptori,
- unul in citire, altul in scriere.
+ unul in citire, altul in scriere.//DONE
 ----------
 A7. (2 puncte) Scrieti niste programe care arata daca fii obtinuti cu fork
  ai unui proces "p" mostenesc redirectarile intrari/iesirii standard care au
