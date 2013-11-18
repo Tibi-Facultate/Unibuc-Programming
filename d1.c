@@ -12,9 +12,9 @@ int listdir(const char *path, int depth) {
     struct dirent *entry;
     DIR *dp;
     int i;
-    char *stupidc;
-    strcpy(stupidc, "/");
-    strcat(path, stupidc);
+
+    char childname[255];
+    
     dp = opendir(path);
     if (dp == NULL) {
         // perror("opendir");
@@ -27,10 +27,11 @@ int listdir(const char *path, int depth) {
 
         if(unless(entry->d_name)!=0 )
             printf("%s\n", entry->d_name);
-        // puts(entry->d_name);
-        
-        if( entry->d_type == DT_DIR && unless(entry->d_name)!=0 )
-            listdir(entry->d_name, depth+1);
+
+        if( entry->d_type == DT_DIR && unless(entry->d_name)!=0 ){
+            snprintf(childname, sizeof childname, "%s%s%s", path, "/", entry->d_name);
+            listdir(childname, depth+1);
+        }
     }
     closedir(dp);
     return 0;
